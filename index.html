@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Meta etiquetas para vista previa al compartir (Open Graph / WhatsApp / Facebook) -->
   <title>Paolo Mi bautizo y 5 años🤠</title>
   <meta property="og:title" content="Paolo Mi bautizo y 5 años🤠">
   <meta property="og:description" content="¡Estás invitado a celebrar este momento tan especial!">
@@ -12,7 +13,9 @@
   <meta property="og:image:height" content="630">
   <meta property="og:type" content="website">
 
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome para iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
@@ -32,6 +35,7 @@
 <body class="w-full h-full m-0 p-0 bg-black overflow-hidden flex items-center justify-center">
 
   <main class="relative w-full h-full flex items-center justify-center">
+    <!-- Reproductor de Video (Silenciado y con barra de controles) -->
     <video 
       id="mainVideo" 
       class="w-full h-full object-cover" 
@@ -40,14 +44,16 @@
       muted
       poster="https://raw.githubusercontent.com/regina1503/PAOLO/main/PAOLO%20(2).jpg"
     >
-      <source src="https://raw.githubusercontent.com/regina1503/PAOLO/main/PAOLO%20(2)%20(1).mp4" type="video/mp4">
+      <source src="https://raw.githubusercontent.com/regina1503/PAOLO/main/PAOLO%20(1).mp4" type="video/mp4">
       Tu navegador no soporta la reproducción de video HTML5.
     </video>
 
+    <!-- Pista de Audio Externa (Edén Muñoz, Cosme Tadeo - La Nena) -->
     <audio id="bgAudio" preload="auto">
       <source src="https://raw.githubusercontent.com/regina1503/PAOLO/main/Eden%20Mu%C3%B1oz%2C%20Cosme%20Tadeo%20-%20La%20Nena%20LETRA.mp3" type="audio/mpeg">
     </audio>
 
+    <!-- Botón de Play Central Personalizado -->
     <button 
       id="btnPlayCenter"
       class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-20 h-20 bg-[#8B4513]/90 hover:bg-[#A0522D] text-white rounded-full flex items-center justify-center shadow-2xl border-2 border-white/40 transition-all transform hover:scale-110 active:scale-95"
@@ -56,6 +62,7 @@
       <i class="fa-solid fa-play text-3xl ml-1"></i>
     </button>
 
+    <!-- Pantalla Final: Código de Vestimenta Vaquero -->
     <div 
       id="outfitOverlay" 
       class="hidden absolute inset-0 bg-black/90 backdrop-blur-md z-40 flex flex-col items-center justify-center p-6 text-center transition-opacity duration-500 opacity-0"
@@ -81,6 +88,7 @@
       </div>
     </div>
 
+    <!-- Mensaje de respaldo en caso de error de conexión -->
     <div id="videoErrorBanner" class="hidden absolute inset-0 bg-slate-950/95 flex-col items-center justify-center p-6 text-center z-50 space-y-4">
       <i class="fa-solid fa-triangle-exclamation text-amber-500 text-3xl"></i>
       <p class="text-sm text-slate-300 max-w-md">
@@ -92,6 +100,7 @@
       </label>
     </div>
 
+    <!-- 1. Botón 1: Parroquia Rosario De Fátima (Aparece 18.5s - 24.0s) -->
     <a
       id="btnParroquia"
       href="https://www.google.com/maps/search/?api=1&query=Parroquia+Rosario+De+Fatima"
@@ -107,6 +116,7 @@
       </span>
     </a>
 
+    <!-- 2. Botón 2: Salón Victoria's (Aparece 26.0s - 31.0s) -->
     <a
       id="btnSalon"
       href="https://www.google.com/maps/search/?api=1&query=Salon+Victorias"
@@ -122,6 +132,7 @@
       </span>
     </a>
 
+    <!-- 3. Botón 3: Confirmar asistencia (Aparece 27.0s - 30.8s) -->
     <a
       id="btnConfirmar"
       href="https://api.whatsapp.com/send?phone=527292387218&text=Hola,%20confirmo%20mi%20asistencia"
@@ -138,6 +149,7 @@
     </a>
   </main>
 
+  <!-- Lógica JavaScript para control de visibilidad y reproducción -->
   <script>
     const video = document.getElementById('mainVideo');
     const audio = document.getElementById('bgAudio');
