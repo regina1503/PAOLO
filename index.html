@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es" class="w-full h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Paolo Mi bautizo y 5 años🤠</title>
+  <meta property="og:title" content="Paolo Mi bautizo y 5 años🤠">
+  <meta property="og:description" content="¡Estás invitado a celebrar este momento tan especial!">
+  <meta property="og:image" content="https://raw.githubusercontent.com/regina1503/PAOLO/main/preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* Estilo personalizado para los botones flotantes (Color Café) */
+    .btn-maps {
+      background-color: #8B4513; 
+      backdrop-filter: blur(4px);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    }
+    .btn-maps:hover {
+      background-color: #A0522D; 
+    }
+  </style>
+</head>
+<body class="w-full h-full m-0 p-0 bg-black overflow-hidden flex items-center justify-center">
+
+  <main class="relative w-full h-full flex items-center justify-center">
+    <video 
+      id="mainVideo" 
+      class="w-full h-full object-cover" 
+      playsinline
+      poster="https://raw.githubusercontent.com/regina1503/PAOLO/main/preview.jpg"
+    >
+      <source src="https://raw.githubusercontent.com/regina1503/PAOLO/main/PAOLO%20(2)%20(1).mp4" type="video/mp4">
+      Tu navegador no soporta la reproducción de video HTML5.
+    </video>
+
+    <button 
+      id="btnPlayCenter"
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-20 h-20 bg-[#8B4513]/90 hover:bg-[#A0522D] text-white rounded-full flex items-center justify-center shadow-2xl border-2 border-white/40 transition-all transform hover:scale-110 active:scale-95"
+      aria-label="Reproducir video"
+    >
+      <i class="fa-solid fa-play text-3xl ml-1"></i>
+    </button>
+
+    <div id="videoErrorBanner" class="hidden absolute inset-0 bg-slate-950/95 flex-col items-center justify-center p-6 text-center z-40 space-y-4">
+      <i class="fa-solid fa-triangle-exclamation text-amber-500 text-3xl"></i>
+      <p class="text-sm text-slate-300 max-w-md">
+        No se pudo cargar el video directamente desde GitHub. Puedes seleccionar el archivo de video desde tu dispositivo:
+      </p>
+      <label class="cursor-pointer px-4 py-2 bg-[#8B4513] hover:bg-[#A0522D] transition text-white text-xs font-semibold rounded-lg shadow-lg">
+        <i class="fa-solid fa-file-video mr-1.5"></i> Cargar video local
+        <input type="file" id="localVideoInput" accept="video/*" class="hidden">
+      </label>
+    </div>
+
+    <a
+      id="btnParroquia"
+      href="https://www.google.com/maps/search/?api=1&query=Parroquia+Rosario+De+Fatima"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="absolute top-[85%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none opacity-0 scale-90 flex items-center gap-2 px-3 py-1.5 btn-maps rounded-lg shadow-2xl"
+    >
+      <div class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-white text-xs shrink-0">
+        <i class="fa-solid fa-location-dot"></i>
+      </div>
+      <span class="text-xs font-medium tracking-tight whitespace-nowrap">
+        Ver ubicación
+      </span>
+    </a>
+
+    <a
+      id="btnSalon"
+      href="https://www.google.com/maps/search/?api=1&query=Salon+Victorias"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="absolute top-[42%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none opacity-0 scale-90 flex items-center gap-2 px-3 py-1.5 btn-maps rounded-lg shadow-2xl"
+    >
+      <div class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-white text-xs shrink-0">
+        <i class="fa-solid fa-location-dot"></i>
+      </div>
+      <span class="text-xs font-medium tracking-tight whitespace-nowrap">
+        Ver ubicación
+      </span>
+    </a>
+
+    <a
+      id="btnConfirmar"
+      href="https://api.whatsapp.com/send?phone=527292387218&text=Hola,%20confirmo%20mi%20asistencia"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="absolute top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none opacity-0 scale-90 flex items-center gap-2 px-3 py-1.5 btn-maps rounded-lg shadow-2xl"
+    >
+      <div class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-white text-xs shrink-0">
+        <i class="fa-brands fa-whatsapp"></i>
+      </div>
+      <span class="text-xs font-medium tracking-tight whitespace-nowrap">
+        Confirmar asistencia
+      </span>
+    </a>
+  </main>
+
+  <script>
+    const video = document.getElementById('mainVideo');
+    const btnPlayCenter = document.getElementById('btnPlayCenter');
+    const btnParroquia = document.getElementById('btnParroquia');
+    const btnSalon = document.getElementById('btnSalon');
+    const btnConfirmar = document.getElementById('btnConfirmar');
+    const videoErrorBanner = document.getElementById('videoErrorBanner');
+    const localVideoInput = document.getElementById('localVideoInput');
+
+    // Tiempos exactos de los botones (en segundos)
+    const BTN1_START = 18.5;
+    const BTN1_END = 24.0;
+
+    const BTN2_START = 26.0;
+    const BTN2_END = 31.0;
+
+    const BTN3_START = 27.0;
+    const BTN3_END = 30.8;
+
+    // Control del botón Play Central
+    btnPlayCenter.addEventListener('click', () => {
+      video.play();
+      btnPlayCenter.classList.add('hidden');
+    });
+
+    video.addEventListener('play', () => {
+      btnPlayCenter.classList.add('hidden');
+    });
+
+    video.addEventListener('pause', () => {
+      btnPlayCenter.classList.remove('hidden');
+    });
+
+    function toggleElement(element, show) {
+      if (show) {
+        element.classList.remove('opacity-0', 'scale-90', 'pointer-events-none');
+        element.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+      } else {
+        element.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+        element.classList.add('opacity-0', 'scale-90', 'pointer-events-none');
+      }
+    }
+
+    function updateButtonsVisibility() {
+      const current = video.currentTime;
+      toggleElement(btnParroquia, current >= BTN1_START && current < BTN1_END);
+      toggleElement(btnSalon, current >= BTN2_START && current < BTN2_END);
+      toggleElement(btnConfirmar, current >= BTN3_START && current < BTN3_END);
+    }
+
+    video.addEventListener('timeupdate', updateButtonsVisibility);
+
+    video.addEventListener('error', () => {
+      videoErrorBanner.classList.remove('hidden');
+      videoErrorBanner.classList.add('flex');
+    });
+
+    localVideoInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        video.src = URL.createObjectURL(file);
+        videoErrorBanner.classList.add('hidden');
+        videoErrorBanner.classList.remove('flex');
+        btnPlayCenter.classList.add('hidden');
+        video.play();
+      }
+    });
+  </script>
+</body>
+</html>
