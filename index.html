@@ -36,11 +36,17 @@
       id="mainVideo" 
       class="w-full h-full object-cover" 
       playsinline
+      controls
+      muted
       poster="https://raw.githubusercontent.com/regina1503/PAOLO/main/PAOLO%20(2).jpg"
     >
       <source src="https://raw.githubusercontent.com/regina1503/PAOLO/main/PAOLO%20(2)%20(1).mp4" type="video/mp4">
       Tu navegador no soporta la reproducción de video HTML5.
     </video>
+
+    <audio id="bgAudio" preload="auto">
+      <source src="https://raw.githubusercontent.com/regina1503/PAOLO/main/Eden%20Mu%C3%B1oz%2C%20Cosme%20Tadeo%20-%20La%20Nena%20LETRA.mp3" type="audio/mpeg">
+    </audio>
 
     <button 
       id="btnPlayCenter"
@@ -109,6 +115,7 @@
 
   <script>
     const video = document.getElementById('mainVideo');
+    const audio = document.getElementById('bgAudio');
     const btnPlayCenter = document.getElementById('btnPlayCenter');
     const btnParroquia = document.getElementById('btnParroquia');
     const btnSalon = document.getElementById('btnSalon');
@@ -126,20 +133,41 @@
     const BTN3_START = 27.0;
     const BTN3_END = 30.8;
 
-    // Control del botón Play Central
-    btnPlayCenter.addEventListener('click', () => {
+    // Control de reproducción sincronizada de audio y video
+    function playMedia() {
       video.play();
+      audio.play().catch(e => console.log("Audio play blocked by browser:", e));
       btnPlayCenter.classList.add('hidden');
-    });
+    }
+
+    function pauseMedia() {
+      video.pause();
+      audio.pause();
+      btnPlayCenter.classList.remove('hidden');
+    }
+
+    btnPlayCenter.addEventListener('click', playMedia);
 
     video.addEventListener('play', () => {
+      audio.play().catch(e => console.log("Audio play blocked:", e));
       btnPlayCenter.classList.add('hidden');
     });
 
     video.addEventListener('pause', () => {
+      audio.pause();
       btnPlayCenter.classList.remove('hidden');
     });
 
+    // Sincronizar audio al adelantar o atrasar el video
+    video.addEventListener('seeking', () => {
+      audio.currentTime = video.currentTime;
+    });
+
+    video.addEventListener('seeked', () => {
+      audio.currentTime = video.currentTime;
+    });
+
+    // Control de visibilidad de los botones según el tiempo
     function toggleElement(element, show) {
       if (show) {
         element.classList.remove('opacity-0', 'scale-90', 'pointer-events-none');
@@ -170,8 +198,7 @@
         video.src = URL.createObjectURL(file);
         videoErrorBanner.classList.add('hidden');
         videoErrorBanner.classList.remove('flex');
-        btnPlayCenter.classList.add('hidden');
-        video.play();
+        playMedia();
       }
     });
   </script>
