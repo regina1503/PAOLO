@@ -62,22 +62,22 @@
       <i class="fa-solid fa-play text-3xl ml-1"></i>
     </button>
 
-    <!-- Pantalla Final: Código de Vestimenta Vaquero -->
+    <!-- Pantalla Final: Sugerencia de Regalos -->
     <div 
       id="outfitOverlay" 
       class="hidden absolute inset-0 bg-black/90 backdrop-blur-md z-40 flex flex-col items-center justify-center p-6 text-center transition-opacity duration-500 opacity-0"
     >
       <div class="border-2 border-[#8B4513] rounded-2xl p-8 max-w-sm w-full bg-slate-950/80 shadow-2xl space-y-4">
         <div class="w-16 h-16 mx-auto rounded-full bg-[#8B4513]/30 border border-[#8B4513] flex items-center justify-center text-amber-500 text-3xl">
-          🤠
+          🎁
         </div>
         <h2 class="text-xl font-bold text-amber-100 uppercase tracking-wide">
-          Código de Vestimenta
+          Sugerencia de Regalos
         </h2>
         <div class="h-0.5 w-16 bg-[#8B4513] mx-auto"></div>
         <p class="text-sm text-slate-200 leading-relaxed font-light">
-          ¡Prepara tu sombrero y tus botas! <br>
-          <span class="font-semibold text-amber-400">El outfit tipo vaquero es obligatorio</span> para celebrar con nosotros.
+          Tu presencia es nuestro mejor regalo. <br>
+          Si deseas tener un detalle con Paolo, una <span class="font-semibold text-amber-400">lluvia de sobres ✉️</span> o en efectivo será con mucho cariño.
         </p>
         <button 
           id="btnReplay"
@@ -202,9 +202,8 @@
       }
     });
 
-    // Mostrar overlay al finalizar el video
+    // Mostrar overlay al finalizar el video (sin pausar la música)
     video.addEventListener('ended', () => {
-      audio.pause();
       showOverlay();
     });
 
