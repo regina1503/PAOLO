@@ -215,6 +215,18 @@
       showOverlay();
     });
 
+    // Mostrar la mesa de regalos en el segundo 40 (sin detener el video ni la música)
+    const REGALOS_START = 40;
+    let regalosMostrado = false;
+    video.addEventListener('timeupdate', () => {
+      if (video.currentTime < REGALOS_START) {
+        regalosMostrado = false;
+      } else if (!regalosMostrado) {
+        regalosMostrado = true;
+        showOverlay();
+      }
+    });
+
     function showOverlay() {
       outfitOverlay.classList.remove('hidden');
       setTimeout(() => {
